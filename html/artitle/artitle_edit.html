@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>記事一覧</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <!--スマートフォン-->
+    <nav class="menu">
+      <div class="logo">
+        <a href="#"><img src="/images/logo.png" alt=""></a>
+      </div>
+      <div class="menu-contents">
+        <div class="menu-inner">
+          <ul>
+            <li class="menu__item"></li>
+            <li class="menu__item"><a href="">記事一覧</a></li>
+          </ul>
+        </div>
+        <div class="menu-toggle_btn">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </nav>
+    <!--pc-->
+    <nav class="pc">
+      <div class="pc-inner">
+        <div class="pc-logo">
+          <a href=""><img src="/images/logo.png" alt=""></a>
+        </div>
+        <ul class="pc-list">
+          <li class="pc-list__item"></li>
+          <li class="pc-list__item"><a href="">記事一覧</a></li>
+          <li class="pc-list__item"><a href="">ログアウト</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <div class="main-inner">
+      <section class="register-section">
+        <h2>新規記事追加</h2>
+        <form action="" method="post" enctype="multipart/form-data">
+          <div class="register-section-details">
+            <div class="register-section-details_flex">
+              <div>タイトル</div>
+              <input type="text" name="title" value="" id="title">
+            </div>
+            <div class="register-section-details_flex">
+              <div>カテゴリー</div>
+              <select name="productCategory">
+                <option value=""></option>
+                <option value="食事">食事</option>
+                <option value="旅行">旅行</option>
+                <option value="仕事">仕事</option>
+                <option value="ペット">ペット</option>
+                <option value="日常生活">日常生活</option>
+                <option value="推し活">推し活</option>
+              </select>
+            </div>
+            <div class="register-section-details_flex">
+            <div>日付</div>
+            <input type="date" />
+            
+          </div>
+            <div class="register-section-details_flex">
+              <div>画像</div>
+              <input type="file" name="productImage">
+            </div>
+            <div class="register-section-details_flex">
+              <div>詳細</div>
+              <textarea name="productDescription" placeholder="今日の気持ちはどう？シェアしましょう"></textarea>
+            </div>
+
+          </div>
+          <div class="register-section-details_flex">
+            <button class="register">登録</button>
+            <button class="back-btn" onclick="history.back();" type="button">戻る</button>
+          </div>
+        </form>
+      </section>
+    </div>
+  </main>
+  <footer>
+    <div>
+      <small>&copy; 2024 new blog.J🥥 </small>
+    </div>
+  </footer>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="./js/common.js"></script>
+</body>
+
+</html>
