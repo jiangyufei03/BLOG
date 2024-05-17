@@ -3,59 +3,48 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>記事一覧</title>
-  <link rel="stylesheet" href="style.css">
+  <!-- スマホでも表示できる -->
+  <meta name="viewport"
+    content="width=device-width, user-scalable=yes, initial-scale=0.3, maximum-scale=2.0, minimum-scale=0.3">
+  <title>ブログ登録画面</title>
+  <link rel="stylesheet" href="edit-style.css">
+
 </head>
 
 <body>
+  <!-- nav -->
   <header>
-    <!--スマートフォン-->
-    <nav class="menu">
-      <div class="logo">
-        <a href="#"><img src="/images/logo.png" alt=""></a>
-      </div>
-      <div class="menu-contents">
-        <div class="menu-inner">
-          <ul>
-            <li class="menu__item"></li>
-            <li class="menu__item"><a href="">記事一覧</a></li>
-          </ul>
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="page-logo">
+          <a href=""><img src="/images/bird_kobatan.png" alt=""></a>
         </div>
-        <div class="menu-toggle_btn">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </div>
-    </nav>
-    <!--pc-->
-    <nav class="pc">
-      <div class="pc-inner">
-        <div class="pc-logo">
-          <a href=""><img src="/images/logo.png" alt=""></a>
-        </div>
-        <ul class="pc-list">
-          <li class="pc-list__item"></li>
-          <li class="pc-list__item"><a href="">記事一覧</a></li>
-          <li class="pc-list__item"><a href="">ログアウト</a></li>
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <span class="username">当前登录用户：username</span>
+          </li>
+          <li>
+            <a href="#" class="logout">ログアウト</a>
+          </li>
         </ul>
       </div>
     </nav>
   </header>
+  <!-- 主体 -->
   <main>
-    <div class="main-inner">
+    <div class="container">
       <section class="register-section">
         <h2>新規記事追加</h2>
         <form action="" method="post" enctype="multipart/form-data">
-          <div class="register-section-details">
-            <div class="register-section-details_flex">
-              <div>タイトル</div>
-              <input type="text" name="title" value="" id="title">
-            </div>
-            <div class="register-section-details_flex">
+          <div class="form-group">
+            <div class="form-label">タイトル</div>
+            <input type="text" id="title" name="title" value="" required>
+          </div>
+          <div class="form-group">
+            <div class="category-group">
               <div>カテゴリー</div>
-              <select name="productCategory">
+              <select name="contentsCategory">
+                <!-- 选项的默认值是空 -->
                 <option value=""></option>
                 <option value="食事">食事</option>
                 <option value="旅行">旅行</option>
@@ -65,24 +54,26 @@
                 <option value="推し活">推し活</option>
               </select>
             </div>
-            <div class="register-section-details_flex">
-            <div>日付</div>
-            <input type="date" />
-            
           </div>
-            <div class="register-section-details_flex">
-              <div>画像</div>
-              <input type="file" name="productImage">
+          <div class="form-group">
+            <div class="date-group">
+              <div class="form-label">日付</div>
+              <input type="date" />
             </div>
-            <div class="register-section-details_flex">
-              <div>詳細</div>
-              <textarea name="productDescription" placeholder="今日の気持ちはどう？シェアしましょう"></textarea>
-            </div>
+          </div>
+          <div class="form-group">
+            <div class="form-label">写真追加</div>
+            <input type="file" name="image" id="image" accept="image/*" required>
+          </div>
+          <div class="form-group">
+            <div class="form-label">詳細</div>
+            <textarea name="content" id="content" rows="10" placeholder="今日の気持ちはどう？シェアしましょう" required></textarea>
+          </div>
 
-          </div>
-          <div class="register-section-details_flex">
-            <button class="register">登録</button>
-            <button class="back-btn" onclick="history.back();" type="button">戻る</button>
+          <!-- button -->
+          <div class="btn">
+            <button class="save">保存</button>
+            <button class="return">戻る</button>
           </div>
         </form>
       </section>
@@ -93,9 +84,7 @@
       <small>&copy; 2024 new blog.J🥥 </small>
     </div>
   </footer>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-  <script src="./js/common.js"></script>
+ 
 </body>
 
 </html>

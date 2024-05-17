@@ -1,0 +1,32 @@
+body{
+  font-family: 'Yu Gothic', 'Hiragino Sans', 'Meiryo', sans-serif; 
+  background-color:#EEA9A9;
+  /* ページの一貫性 */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  /* 垂直方向排列（縦方向） */
+  flex-direction: column;
+}
+
+.navbar{
+  width: 100%;
+  background-color: #BF6766;
+}
+
+.nav-container{
+  display: flex;
+  /* 両端寄せのレイアウト */
+  justify-content: space-between;
+  /* アイテムを中央に揃える */
+  align-items: center;
+  /* 過度に伸ばされるのを防ぐため */
+  max-width: 800px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+.page-logo img{
+  width: 50px;
+  height: auto;
+}
