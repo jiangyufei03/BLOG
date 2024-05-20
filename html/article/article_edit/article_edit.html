@@ -6,8 +6,8 @@
   <!-- スマホでも表示できる -->
   <meta name="viewport"
     content="width=device-width, user-scalable=yes, initial-scale=0.3, maximum-scale=2.0, minimum-scale=0.3">
-  <title>ブログ登録画面</title>
-  <link rel="stylesheet" href="edit-style.css">
+  <title>ブログ編集画面</title>
+  <link rel="stylesheet" href="edit_style.css">
 
 </head>
 
@@ -34,16 +34,16 @@
   <main>
     <div class="container">
       <section class="register-section">
-        <h2>新規記事追加</h2>
+        <h2>🍍 ブログ編集 🍍</h2>
         <form action="" method="post" enctype="multipart/form-data">
           <div class="form-group">
             <div class="form-label">タイトル</div>
-            <input type="text" id="title" name="title" value="" required>
+            <input type="text" id="blogTitle" name="blogTitle" value="" required>
           </div>
           <div class="form-group">
             <div class="category-group">
-              <div>カテゴリー</div>
-              <select name="contentsCategory">
+              <div class="form-label">カテゴリー</div>
+              <select name="categoryName">
                 <!-- 选项的默认值是空 -->
                 <option value=""></option>
                 <option value="食事">食事</option>
@@ -63,17 +63,32 @@
           </div>
           <div class="form-group">
             <div class="form-label">写真追加</div>
-            <input type="file" name="image" id="image" accept="image/*" required>
+            <input type="file" name="blogImage" id="blogImage" accept="image/*" required>
           </div>
           <div class="form-group">
             <div class="form-label">詳細</div>
-            <textarea name="content" id="content" rows="10" placeholder="今日の気持ちはどう？シェアしましょう" required></textarea>
+            <textarea name="article" id="article" rows="10" placeholder="今日の気持ちはどう？シェアしましょう" required></textarea>
           </div>
 
           <!-- button -->
           <div class="btn">
-            <button class="save">保存</button>
-            <button class="return">戻る</button>
+            <form th:action="@{/product/save}" method="post">
+              <div class="register-section-details_flex">
+                <input type="hidden" name="blogId" value="">
+                <button class="save">更新</button>
+              </div>
+            </form>
+
+            <form th:action="@{/product/delete}" method="post">
+              <div class="register-section-details_flex">
+                <input type="hidden" name="blogId" value="">
+                <button class="register">削除</button>
+              </div>
+            </form>
+            
+              <input type="hidden" name="blogId" value="">
+              <button class="return">戻る</button>
+           
           </div>
         </form>
       </section>
@@ -84,7 +99,7 @@
       <small>&copy; 2024 new blog.J🥥 </small>
     </div>
   </footer>
- 
+
 </body>
 
 </html>

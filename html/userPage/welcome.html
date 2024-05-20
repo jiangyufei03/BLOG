@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- スマホでも表示できる -->
+  <meta name="viewport"
+    content="width=device-width, user-scalable=yes, initial-scale=0.3, maximum-scale=2.0, minimum-scale=0.3">
+  <title>welcomePage</title>
+  <link rel="stylesheet" href="welcome_styles.css">
+</head>
+
+<body>
+  <header>
+    <h2>🍒WELCOME, <span></span>!🍒</h2>
+  </header>
+  <section class="content">
+    <div class="left-model">
+      <div class="userInformation">
+        <h3>個人情報</h3>
+        <p>USERNAME:<span></span></p>
+        <p>EMAIL: <span></span></p>
+      </div>
+    </div>
+    <div class="right-model">
+      <div class="view-blog">
+        <h3>ブログ一覧</h3>
+        <button th:onclick="'location.href=' + @{/article/article_list}">ALL</button>
+      </div>
+      <div class="write-blog">
+        <h3>ブログ登録</h3>
+        <button th:onclick="'location.href=' + @{/article/article_add}">NEW BLOG</button>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div>
+      <small>&copy; 2024 new blog.J🥥 </small>
+    </div>
+  </footer>
+</body>
+
+</html>
