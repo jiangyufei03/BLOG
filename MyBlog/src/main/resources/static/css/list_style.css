@@ -1,0 +1,134 @@
+body{
+  font-family: "Hiragino Sans", "Meiryo", sans-serif;
+  background-color: #b89485;
+  /* ページの一貫性 */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  /* 垂直方向排列（縦方向） */
+  flex-direction: column;
+}
+
+.navbar{
+  width: 100%;
+  background-color: #e5b751;
+}
+
+.nav-container{
+  display: flex;
+  /* 両端寄せのレイアウト */
+  justify-content: space-between;
+  /* アイテムを中央に揃える */
+  align-items: center;
+  /* 過度に伸ばされるのを防ぐため */
+  max-width: 800px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+.page-logo img{
+  width: 50px;
+  height: auto;
+}
+
+.nav-menu{
+  /* デフォルトの箇条書きマーク（ディスク、数字、など）を取り除く */
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item{
+  /* 間との距離を調整 */
+  margin: auto 2px;
+}
+
+.userPage{
+  color: #fff;
+  display: flex;
+  text-decoration: none;
+  padding: 5px 10px;
+  align-items: center;
+  font-size: 12px; 
+  background-color: #835e1d;
+  border-radius: 4px;
+  margin: auto 5px;
+}
+
+.userPage:hover{
+  background-color:#0B346E;
+}
+
+.logout{
+  color: #fff;
+  /* リンクの下線を無効にする */
+  text-decoration: none;
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  font-size: 12px; 
+  background-color:#835e1d;
+  border-radius: 4px
+  }
+
+.logout:hover{
+  background-color:#0B346E;
+}
+
+.username{
+  color: #fff;
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+h2{
+  text-align: center;
+  color: #fff;
+}
+
+.all-view_button {
+  text-align: center;
+}
+
+.btn{
+  display: inline-block;
+  text-decoration: none;
+  color: #fff;
+  margin : auto ;
+  padding: 4px 8px;
+  text-align: center;
+  background-color: #91AD70;
+  border-radius: 4px;
+   /* シャドー */
+   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover{
+  background-color: #82663A;
+}
+
+.articles {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.articles li {
+  width: 50%;
+  height: 200px;
+  margin: 10px;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  /* シャドー */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+  text-align: center;
+}

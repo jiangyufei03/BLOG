@@ -1,0 +1,68 @@
+body{
+  font-family: "Hiragino Sans", "Meiryo", sans-serif;
+  background-color: cadetblue;
+}
+
+h2{
+  text-align: center;
+  color: bisque;
+}
+
+.title{
+  text-align: center;
+  background-color: palevioletred;
+  font-size: larger;
+}
+
+.register-form{
+  width: 400px;
+  border: 2px solid gray;
+  margin: 35px auto;
+  border-radius: 10px;
+  background-color: #FAF0E6;
+  text-align: center;
+}
+
+.form{
+  margin: 15px;
+}
+
+.btn{
+  text-align: center;
+  border-radius: 4px;
+  margin: 5px;
+  
+}
+
+button:hover{
+  background-color:#DB7093;
+}
+
+p{
+  text-align: center;
+  font-size: small;
+}
+
+.link{
+  font-size: small;
+  text-align: center;
+  margin: 20px;
+}
+
+a{
+  text-decoration: none;
+  color: cornsilk;
+}
+
+input:focus {
+  outline: none;
+}
+
+.form input::placeholder {
+  text-align: center;
+}
+
+footer{
+  padding: 0.1rem 0;
+  background-color: #FFF0F5;
+}

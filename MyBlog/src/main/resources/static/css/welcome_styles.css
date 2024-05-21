@@ -1,0 +1,48 @@
+body{
+  font-family: "Hiragino Sans", "Meiryo", sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header{
+  color:honeydew;
+  background-color: #86C166;
+  width: 100%;
+  text-align: center;
+  padding: 20px;
+  font-size: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+h3 {
+  margin: 15px 0;
+}
+
+.content{
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  height: 50%;
+  /* 与welcome之间的距离 */
+  margin-top: 20px;
+}
+
+.left-model, .right-model {
+  display: flex; 
+  flex-direction: column;
+  flex: 1;
+  /* 左右盒子的距离 */
+  margin: 0 10px;
+  background-color: #f0f0f0;
+  padding: 15px 40px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #ccccd6;
+  border-radius: 4px;
+}
+
+footer{
+  margin: 15px;
+}
