@@ -42,9 +42,9 @@ public class AccountLoginController {
 			return "login.html";
 		}else {
 			//sessionに保存する
-			//									前のaccount変数
+			//						key			前のaccount変数
 			session.setAttribute("loginAccountInfo", account);
-			return "redirect:/blog/list";
+			return "redirect:/account/welcome";
 		}
 		
 	}

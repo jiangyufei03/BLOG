@@ -15,7 +15,7 @@
     <nav class="navbar">
       <div class="nav-container">
         <div class="page-logo">
-          <a href=""><img th:src="@{/images/bird_kobatan.png}" alt=""></a>
+          <a th:href="@{/account/welcome}"><img th:src="@{/images/bird_kobatan.png}" alt=""></a>
         </div>
         <ul class="nav-menu">
           <li class="nav-item">
@@ -25,7 +25,7 @@
             <a href="#" class="userPage">ユーザー</a>
           </li>
           <li>
-            <a href="#" class="logout">ログアウト</a>
+            <a th:href="@{/account/logout}" class="logout">ログアウト</a>
           </li>
         </ul>
       </div>
@@ -37,15 +37,18 @@
       <h2>🍋 ブログ一覧 🍋</h2>
       <section class="register-item">
         <div class="all-view_button">
-          <a href="" class="btn">ブログ登録</a>
+          <a th:href="@{/blog/register}" class="btn">ブログ登録</a>
         </div>
       </section>
       <ul class="articles">
-        <li>
-          <a href="">
-            <img src="" alt="">
-            <p></p><br>
-            <p></p>
+		<!--for each文を書く-->
+        <li　th:each="blog:${blogList}">
+			<!--編集画面-->          <!--詳細-->			<!--blogId是entity中的变数-->
+          <a th:href="@{/blog/edit/{blogId}(blogId=${blog.blogId})}">
+															<!--blogImage是entity中的变数-->
+            <img th:src="@{/blog-img/{imagePath}(imagePath=${blog.blogImage})}" alt="">
+            <p th:text="${blog.blogTitle}"></p><br>
+            <p th:text="${blog.categoryName}"></p>
           </a>
         </li>
 

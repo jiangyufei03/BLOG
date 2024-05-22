@@ -7,7 +7,7 @@
   <meta name="viewport"
     content="width=device-width, user-scalable=yes, initial-scale=0.3, maximum-scale=2.0, minimum-scale=0.3">
   <title>ブログ登録画面</title>
-  <link rel="stylesheet" href="add_style.css">
+  <link rel="stylesheet" th:href="@{/css/add_style.css}">
 
 </head>
 
@@ -17,14 +17,14 @@
     <nav class="navbar">
       <div class="nav-container">
         <div class="page-logo">
-          <a href=""><img src="/images/bird_kobatan.png" alt=""></a>
+          <a th:href="@{/account/welcome}"><img th:src="@{/images/bird_kobatan.png}" alt=""></a>
         </div>
         <ul class="nav-menu">
           <li class="nav-item">
-            <span class="username">当前登录用户：username</span>
+            <span class="username" th:text="${accountName}"></span>
           </li>
           <li>
-            <a href="#" class="logout">ログアウト</a>
+            <a th:href="@{/account/logout}" class="logout">ログアウト</a>
           </li>
         </ul>
       </div>
@@ -35,7 +35,8 @@
     <div class="container">
       <section class="register-section">
         <h2>🍇 新規記事追加 🍇 </h2>
-        <form action="" method="post" enctype="multipart/form-data">
+			<!--｛/blog/register/process｝に送信する　-->									<!--写真追加必要-->
+        <form th:action="@{/blog/register/process}" method="post" enctype="multipart/form-data">
           <div class="form-group">
             <div class="form-label" >タイトル</div>
             <input type="text" id="blogTitle" name="blogTitle" value="" required>
@@ -72,16 +73,12 @@
 
           <!-- button -->
           <div class="btn">
-            <form th:action="@{/product/save}" method="post">
-              <div class="register-section-details_flex">
+              <div class="register-details">
                 <input type="hidden" name="blogId" value="">
                 <button class="save">保存</button>
               </div>
-            </form>
-            <form>
               <input type="hidden" name="blogId" value="">
               <button class="return">戻る</button>
-            </form>
           </div>
         </form>
       </section>
