@@ -2,103 +2,112 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <!-- スマホでも表示できる -->
-  <meta name="viewport"
-    content="width=device-width, user-scalable=yes, initial-scale=0.3, maximum-scale=2.0, minimum-scale=0.3">
-  <title>ブログ編集画面</title>
-  <link rel="stylesheet" href="edit_style.css">
+	<meta charset="UTF-8">
+	<!-- スマホでも表示できる -->
+	<meta name="viewport"
+		content="width=device-width, user-scalable=yes, initial-scale=0.3, maximum-scale=2.0, minimum-scale=0.3">
+	<title>ブログ編集画面</title>
+	<link rel="stylesheet" th:href="@{/css/edit_style.css}">
 
 </head>
 
 <body>
-  <!-- nav -->
-  <header>
-    <nav class="navbar">
-      <div class="nav-container">
-        <div class="page-logo">
-          <a href=""><img src="/images/bird_kobatan.png" alt=""></a>
-        </div>
-        <ul class="nav-menu">
-          <li class="nav-item">
-            <span class="username">当前登录用户：username</span>
-          </li>
-          <li>
-            <a href="#" class="logout">ログアウト</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  </header>
-  <!-- 主体 -->
-  <main>
-    <div class="container">
-      <section class="register-section">
-        <h2>🍍 ブログ編集 🍍</h2>
-        <form action="" method="post" enctype="multipart/form-data">
-          <div class="form-group">
-            <div class="form-label">タイトル</div>
-            <input type="text" id="blogTitle" name="blogTitle" value="" required>
-          </div>
-          <div class="form-group">
-            <div class="category-group">
-              <div class="form-label">カテゴリー</div>
-              <select name="categoryName">
-                <!-- 选项的默认值是空 -->
-                <option value=""></option>
-                <option value="食事">食事</option>
-                <option value="旅行">旅行</option>
-                <option value="仕事">仕事</option>
-                <option value="ペット">ペット</option>
-                <option value="日常生活">日常生活</option>
-                <option value="推し活">推し活</option>
-              </select>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="date-group">
-              <div class="form-label">日付</div>
-              <input type="date" />
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="form-label">写真追加</div>
-            <input type="file" name="blogImage" id="blogImage" accept="image/*" required>
-          </div>
-          <div class="form-group">
-            <div class="form-label">詳細</div>
-            <textarea name="article" id="article" rows="10" placeholder="今日の気持ちはどう？シェアしましょう" required></textarea>
-          </div>
+	<!-- nav -->
+	<header>
+		<nav class="navbar">
+			<div class="nav-container">
+				<div class="page-logo">
+					<a th:href="@{/account/welcome}"><img th:src="@{/images/bird_kobatan.png}" alt=""></a>
+				</div>
+				<ul class="nav-menu">
+					<li class="nav-item">
+						<span class="username" th:text="${accountName}"></span>
+					</li>
+					<li>
+						<a th:href="@{/blog/list}" class="blog-list">ブログ一覧</a>
+					</li>
+					<li>
+						<a th:href="@{/account/logout}" class="logout">ログアウト</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+	<!-- 主体 -->
+	<main>
+		<div class="container">
+			<section class="register-section">
+				<h2>🍍 ブログ編集 🍍</h2>
+				<form th:action="@{/blog/edit/{blogId}(blogId=${blog.blogId})}" method="post" enctype="multipart/form-data">
+					<div class="form-group">
+						<div class="form-label">タイトル</div>
+						<!--前に登録した内容（BlogEditController中的blog）-->
+						<input type="text" id="blogTitle" name="blogTitle" th:value="${blog.blogTitle}" required>
+					</div>
+					<div class="form-group">
+						<div class="category-group">
+							<div class="form-label">カテゴリー</div>
+							<select name="categoryName">
+								<!-- 选项的默认值是空 -->
+								<option value=""></option>
+								<!--前に選択した情報を表示-->
+								<option value="食事" th:selected="${blog.categoryName} == '食事'">食事</option>
+								<option value="旅行" th:selected="${blog.categoryName} == '旅行'">旅行</option>
+								<option value="仕事" th:selected="${blog.categoryName} == '仕事'">仕事</option>
+								<option value="ペット" th:selected="${blog.categoryName} == 'ペット'">ペット</option>
+								<option value="日常生活" th:selected="${blog.categoryName} == '日常生活'">日常生活</option>
+								<option value="推し活" th:selected="${blog.categoryName} == '推し活'">推し活</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="date-group">
+							<div class="form-label">日付</div>
+							<input type="date" />
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="form-label">写真追加</div>
+						<!--画像部分不用改变，会涉及安全问题-->
+						<input type="file" name="blogImage" id="blogImage" accept="image/*" required>
+					</div>
+					<div class="form-group">
+						<div class="form-label">詳細</div>
+						<textarea name="article" id="article" rows="10" placeholder="今日の気持ちはどう？シェアしましょう"
+							th:text="${blog.article}" required></textarea>
+					</div>
 
-          <!-- button -->
-          <div class="btn">
-            <form th:action="@{/product/save}" method="post">
-              <div class="refresh-design">
-                <input type="hidden" name="blogId" value="">
-                <button class="save">更新</button>
-              </div>
-            </form>
+					<!-- button -->
+					<div class="btn">
 
-            <form th:action="@{/product/delete}" method="post">
-              <div class="delete-design">
-                <input type="hidden" name="blogId" value="">
-                <button class="register">削除</button>
-              </div>
-            </form>
-            
-              <input type="hidden" name="blogId" value="">
-              <button class="return">戻る</button>
-           
-          </div>
-        </form>
-      </section>
-    </div>
-  </main>
-  <footer>
-    <div>
-      <small>&copy; 2024 new blog.J🥥 </small>
-    </div>
-  </footer>
+						<div class="refresh-design">
+							<!--需要blogId-->
+							<input type="hidden" name="blogId" th:value="${blog.blogId}">
+							<button class="save">更新</button>
+						</div>
+				</form>
+				<!--削除ボタン-->
+				<form th:action="@{/blog/delete/process}" method="post">
+					<div class="delete-design">
+						<!--hidden : 画面上に見せたくない-->
+						<input type="hidden" name="blogId" th:value="${blog.blogId}">
+						<button class="register">削除</button>
+					</div>
+				</form>
+
+				<input type="hidden" name="blogId" value="">
+				<button class="return" onclick="history.back();" type="button">戻る</button>
+
+		</div>
+
+		</section>
+		</div>
+	</main>
+	<footer>
+		<div>
+			<small>&copy; 2024 new blog.J🥥 </small>
+		</div>
+	</footer>
 
 </body>
 

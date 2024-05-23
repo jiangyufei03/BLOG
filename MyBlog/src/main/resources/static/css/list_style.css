@@ -1,82 +1,74 @@
-body{
+body {
   font-family: "Hiragino Sans", "Meiryo", sans-serif;
   background-color: #b89485;
-  /* ページの一貫性 */
   margin: 0;
   padding: 0;
   display: flex;
-  /* 垂直方向排列（縦方向） */
   flex-direction: column;
 }
 
-.navbar{
+.navbar {
   width: 100%;
   background-color: #e5b751;
 }
 
-.nav-container{
+.nav-container {
   display: flex;
-  /* 両端寄せのレイアウト */
   justify-content: space-between;
-  /* アイテムを中央に揃える */
   align-items: center;
-  /* 過度に伸ばされるのを防ぐため */
   max-width: 800px;
   margin: auto;
   padding: 0 20px;
 }
 
-.page-logo img{
+.page-logo img {
   width: 50px;
   height: auto;
 }
 
-.nav-menu{
-  /* デフォルトの箇条書きマーク（ディスク、数字、など）を取り除く */
+.nav-menu {
   list-style: none;
   display: flex;
   margin: 0;
   padding: 0;
 }
 
-.nav-item{
-  /* 間との距離を調整 */
+.nav-item {
   margin: auto 2px;
 }
 
-.userPage{
+.userPage {
   color: #fff;
   display: flex;
   text-decoration: none;
   padding: 5px 10px;
   align-items: center;
-  font-size: 12px; 
+  font-size: 12px;
   background-color: #835e1d;
   border-radius: 4px;
   margin: auto 5px;
 }
 
-.userPage:hover{
-  background-color:#0B346E;
+.userPage:hover {
+  background-color: #0B346E;
 }
 
-.logout{
+.logout {
   color: #fff;
-  /* リンクの下線を無効にする */
   text-decoration: none;
   padding: 5px 10px;
   display: flex;
   align-items: center;
-  font-size: 12px; 
-  background-color:#835e1d;
-  border-radius: 4px
-  }
-
-.logout:hover{
-  background-color:#0B346E;
+  font-size: 12px;
+  background-color: #835e1d;
+  border-radius: 4px;
 }
 
-.username{
+.logout:hover {
+  background-color: #0B346E;
+}
+
+.username {
   color: #fff;
   padding: 5px 10px;
   display: flex;
@@ -84,7 +76,7 @@ body{
   font-size: 14px;
 }
 
-h2{
+h2 {
   text-align: center;
   color: #fff;
 }
@@ -93,40 +85,67 @@ h2{
   text-align: center;
 }
 
-.btn{
+.btn {
   display: inline-block;
   text-decoration: none;
   color: #fff;
-  margin : auto ;
+  margin: auto;
   padding: 4px 8px;
   text-align: center;
   background-color: #91AD70;
   border-radius: 4px;
-   /* シャドー */
-   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
-.btn:hover{
+.btn:hover {
   background-color: #82663A;
 }
 
 .articles {
   list-style-type: none;
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
 }
 
 .articles li {
-  width: 50%;
-  height: 200px;
-  margin: 10px;
-  background-color: #fff;
-  border-radius: 8px;
-  padding: 20px;
+  width: 80%;
+  margin: 10px 0;
+}
+
+.blog-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
-  /* シャドー */
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.blog-image {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.blog-image img {
+  max-width: 48%; /* 最大宽度为页面宽度的% */
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.blog-content {
+  width: 100%;
+  font-size: 18px;
+}
+
+/*デフォルトで表示される下線を消す*/
+.articles li a {
+  text-decoration: none;
+  color: #F7C242;
+}
+
+
+.blog-content p {
+  margin: 5px 0;
 }
 
 footer {

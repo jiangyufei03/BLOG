@@ -22,7 +22,7 @@
             <span class="username" th:text="${accountName}"></span>
           </li>
           <li>
-            <a href="#" class="userPage">ユーザー</a>
+            <a th:href="@{/account/welcome}" class="userPage">ユーザー</a>
           </li>
           <li>
             <a th:href="@{/account/logout}" class="logout">ログアウト</a>
@@ -41,28 +41,31 @@
         </div>
       </section>
       <ul class="articles">
-		<!--for each文を書く-->
-        <li　th:each="blog:${blogList}">
-			<!--編集画面-->          <!--詳細-->			<!--blogId是entity中的变数-->
+        <!-- for each文を書く -->
+        <li th:each="blog:${blogList}">
+          <!-- 編集画面(BlogEditControllerも使う)-->
           <a th:href="@{/blog/edit/{blogId}(blogId=${blog.blogId})}">
-															<!--blogImage是entity中的变数-->
-            <img th:src="@{/blog-img/{imagePath}(imagePath=${blog.blogImage})}" alt="">
-            <p th:text="${blog.blogTitle}"></p><br>
-            <p th:text="${blog.categoryName}"></p>
+            <div class="blog-item">
+              <div class="blog-image">
+                <!-- blogImageはentity中的変数 -->
+                <img th:src="@{/blog-img/{imagePath}(imagePath=${blog.blogImage})}" alt="">
+              </div>
+              <div class="blog-content">
+                <p th:text="${blog.blogTitle}"></p>
+                <p th:text="${blog.categoryName}"></p>
+              </div>
+            </div>
           </a>
         </li>
-
       </ul>
-
     </article>
-
   </main>
   <footer>
     <div>
       <small>&copy; 2024 new blog.J🥥 </small>
     </div>
   </footer>
-
 </body>
-
 </html>
+
+

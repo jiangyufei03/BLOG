@@ -34,7 +34,7 @@
   <main>
     <div class="container">
       <section class="register-section">
-        <h2>🍇 新規記事追加 🍇 </h2>
+        <h2>🍍 新規記事追加 🍍 </h2>
 			<!--｛/blog/register/process｝に送信する　-->									<!--写真追加必要-->
         <form th:action="@{/blog/register/process}" method="post" enctype="multipart/form-data">
           <div class="form-group">
@@ -78,7 +78,7 @@
                 <button class="save">保存</button>
               </div>
               <input type="hidden" name="blogId" value="">
-              <button class="return">戻る</button>
+               <button class="return" onclick="history.back();" type="button">戻る</button>
           </div>
         </form>
       </section>

@@ -40,6 +40,8 @@ public class BlogListController {
 			model.addAttribute("accountName", account.getAccountName());
 			// blogListを画面に渡す
 			model.addAttribute("blogList", blogList);
+			
+			
 			return "article_list.html";
 		}
 	}

@@ -46,4 +46,49 @@ public class BlogService {
 		}
 	}
 
+	//編集画面を表示する時のcheck
+	//findByBlogIdを利用して、編集したい内容を探す、blogIdが必要（controllerからもらう）
+	//もしcontrollerからもらった　blogId == null　だったら、nullを返す
+	//そうでない場合、BLogDaoのfindByBlogIdメソッドの情報をコントローラーに渡す
+	//戻り値のデータ型はBlog
+	public Blog blogEditCheck(Long blogId) {
+		//もしblogId == null　だったら、探すことができない
+		if (blogId == null) {
+			return null;
+		}else {
+			//編集したい情報をコントローラーに渡す
+			return blogDao.findByBlogId(blogId);
+		}
+	}
+	
+	//更新処理のcheck
+	//もしblogId　== null だったら、更新処理できない、falseを返す
+	//そうでない場合、
+	//更新処理をする（データの変わった部分だけを更新する）
+	//コントローラーからもらったblogIdを使って、編集する前のデータを取得する
+	//変更すべきところだけ、setterを使用して、データの更新をする、trueを返す
+	//							受け取る内容はentityに参照(可能会改变的内容)
+	public boolean blogUpdate(Long blogId,
+				String blogTitle,
+				String categoryName,
+				String blogImage, 
+				String article,
+				Long accountId) {
+		if (blogId == null) {
+			return false;
+		}else {
+			//BlogDaoのfindByBlogIdメソッドをりようして、blogIdを使って、編集する前のデータをとる
+			//データ型はBlog、内容を変数blogに格納
+			Blog blog = blogDao.findByBlogId(blogId);
+			//setterを使う
+			blog.setBlogTitle(blogTitle);
+			blog.setCategoryName(categoryName);
+			blog.setBlogImage(blogImage);
+			blog.setArticle(article);
+			blog.setAccountId(accountId);
+			blogDao.save(blog);
+			return true;
+		}
+	}
+	
 }
