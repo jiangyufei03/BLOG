@@ -91,4 +91,20 @@ public class BlogService {
 		}
 	}
 	
+	//削除処理のcheck
+	//blogIdをコントローラーからもらって、削除する
+	//もしblogId == nullだったら、削除できない、falseを返す
+	//そうでない場合、
+	//BlogDaoのdeleteByBlogIdメソッドを使って、商品削除、trueを返す
+	public boolean deleteBlog(Long blogId) {
+		if (blogId == null) {
+			return false;
+		}else {
+			blogDao.deleteByBlogId(blogId);
+			return true;
+		}
+	}
+	
+	
+	
 }

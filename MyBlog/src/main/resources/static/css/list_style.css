@@ -123,13 +123,15 @@ h2 {
 .blog-image {
   width: 100%;
   margin-bottom: 10px;
+  
 }
 
 .blog-image img {
-  max-width: 48%; /* 最大宽度为页面宽度的% */
-  height: auto;
+  max-width: 55%; /* 最大宽度为页面宽度的% */
+  max-height: 80vh;
   border-radius: 8px;
   object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .blog-content {

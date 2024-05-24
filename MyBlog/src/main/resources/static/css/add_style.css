@@ -45,19 +45,20 @@ body{
 }
 
 .logout{
-  color: #fff;
+  color: cornsilk;;
   /* リンクの下線を無効にする */
   text-decoration: none;
   padding: 5px 10px;
   display: flex;
   align-items: center;
   font-size: 12px; 
-  background-color:#b598a1;
+  background-color:transparent;
   border-radius: 4px
   }
 
 .logout:hover{
-  background-color: #77969A;
+  background-color: #E9A368;
+  color: cornsilk;
 }
 
 .username{
@@ -145,7 +146,7 @@ textarea{
 .btn button {
   margin: 0 10px; 
   padding: 6px;
-  background-color: #9a8878;
+  background-color: transparent;
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -153,7 +154,7 @@ textarea{
 }
 
 .btn button:hover {
-  background-color: #6C6024;
+ background-color:#F05E1C;
 }
 
 textarea,

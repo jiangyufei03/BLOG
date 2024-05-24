@@ -2,42 +2,45 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <!-- スマホでも表示できる -->
-  <meta name="viewport"
-    content="width=device-width, user-scalable=yes, initial-scale=0.3, maximum-scale=2.0, minimum-scale=0.3">
-  <title>welcomePage</title>
-  <link rel="stylesheet"  th:href="@{/css/welcome_styles.css}">
+	<meta charset="UTF-8">
+	<!-- 确保在手机上显示良好 -->
+	<meta name="viewport"
+		content="width=device-width, user-scalable=yes, initial-scale=0.3, maximum-scale=2.0, minimum-scale=0.3">
+	<title>welcomePage</title>
+	<link rel="stylesheet" th:href="@{/css/welcome_styles.css}">
 </head>
 
 <body>
-  <header>
-    <h2>🍒WELCOME! <span class="username" th:text="${accountName}"></span>🍒</h2>
-  </header>
-  <section class="content">
-    <div class="left-model">
-      <div class="userInformation">
-        <h3>個人情報</h3>
-        <p>USERNAME:<span class="username" th:text="${accountName}"></p>
-        <p>EMAIL:<span class="userEmail" th:text="${accountEmail}"></p>
-      </div>
-    </div>
-    <div class="right-model">
-      <div class="view-blog">
-        <h3>ブログ一覧</h3>
-		<button onclick="location.href='/blog/list'">ALL</button>
-      </div>
-      <div class="write-blog">
-        <h3>ブログ登録</h3>
-        <button onclick="location.href='/blog/register'">NEW BLOG</button>
-      </div>
-    </div>
-  </section>
-  <footer>
-    <div>
-      <small>&copy; 2024 new blog.J🥥 </small>
-    </div>
-  </footer>
+	<header>
+		<h2>🍒WELCOME! <span class="username" th:text="${accountName}"></span>🍒</h2>
+	</header>
+	<section class="content">
+		<div class="left-model">
+			<div class="userInformation">
+				<h3>個人情報</h3>
+				<p>USERNAME:<span class="username" th:text="${accountName}"></span></p>
+				<p>EMAIL:<span class="userEmail" th:text="${accountEmail}"></span></p>
+			</div>
+		</div>
+		<div class="right-model">
+			<div class="view-blog">
+				<h3>ブログ一覧</h3>
+				<button onclick="location.href='/blog/list'">ALL</button>
+			</div>
+			<div class="write-blog">
+				<h3>ブログ登録</h3>
+				<button onclick="location.href='/blog/register'">NEW BLOG</button>
+			</div>
+		</div>
+	</section>
+	<div class="logout-btn">
+		<a th:href="@{/account/logout}" class="logout">ログアウト</a>
+	</div>
+	<footer>
+		<div>
+			<small>&copy; 2024 new blog.J🥥 </small>
+		</div>
+	</footer>
 </body>
 
 </html>

@@ -87,7 +87,7 @@
 						</div>
 				</form>
 				<!--削除ボタン-->
-				<form th:action="@{/blog/delete/process}" method="post">
+				<form th:action="@{/blog/delete}" method="post">
 					<div class="delete-design">
 						<!--hidden : 画面上に見せたくない-->
 						<input type="hidden" name="blogId" th:value="${blog.blogId}">

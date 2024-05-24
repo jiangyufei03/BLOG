@@ -2,93 +2,96 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <!-- スマホでも表示できる -->
-  <meta name="viewport"
-    content="width=device-width, user-scalable=yes, initial-scale=0.3, maximum-scale=2.0, minimum-scale=0.3">
-  <title>ブログ登録画面</title>
-  <link rel="stylesheet" th:href="@{/css/add_style.css}">
+	<meta charset="UTF-8">
+	<!-- スマホでも表示できる -->
+	<meta name="viewport"
+		content="width=device-width, user-scalable=yes, initial-scale=0.3, maximum-scale=2.0, minimum-scale=0.3">
+	<title>ブログ登録画面</title>
+	<link rel="stylesheet" th:href="@{/css/add_style.css}">
 
 </head>
 
 <body>
-  <!-- nav -->
-  <header>
-    <nav class="navbar">
-      <div class="nav-container">
-        <div class="page-logo">
-          <a th:href="@{/account/welcome}"><img th:src="@{/images/bird_kobatan.png}" alt=""></a>
-        </div>
-        <ul class="nav-menu">
-          <li class="nav-item">
-            <span class="username" th:text="${accountName}"></span>
-          </li>
-          <li>
-            <a th:href="@{/account/logout}" class="logout">ログアウト</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  </header>
-  <!-- 主体 -->
-  <main>
-    <div class="container">
-      <section class="register-section">
-        <h2>🍍 新規記事追加 🍍 </h2>
-			<!--｛/blog/register/process｝に送信する　-->									<!--写真追加必要-->
-        <form th:action="@{/blog/register/process}" method="post" enctype="multipart/form-data">
-          <div class="form-group">
-            <div class="form-label" >タイトル</div>
-            <input type="text" id="blogTitle" name="blogTitle" value="" required>
-          </div>
-          <div class="form-group">
-            <div class="category-group">
-              <div class="form-label">カテゴリー</div>
-              <select name="categoryName">
-                <!-- 选项的默认值是空 -->
-                <option value=""></option>
-                <option value="食事">食事</option>
-                <option value="旅行">旅行</option>
-                <option value="仕事">仕事</option>
-                <option value="ペット">ペット</option>
-                <option value="日常生活">日常生活</option>
-                <option value="推し活">推し活</option>
-              </select>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="date-group">
-              <div class="form-label">日付</div>
-              <input type="date" />
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="form-label">写真追加</div>
-            <input type="file" name="blogImage" id="blogImage" accept="image/*" required>
-          </div>
-          <div class="form-group">
-            <div class="form-label">詳細</div>
-            <textarea name="article" id="article" rows="10" placeholder="今日の気持ちはどう？シェアしましょう" required></textarea>
-          </div>
 
-          <!-- button -->
-          <div class="btn">
-              <div class="register-details">
-                <input type="hidden" name="blogId" value="">
-                <button class="save">保存</button>
-              </div>
-              <input type="hidden" name="blogId" value="">
-               <button class="return" onclick="history.back();" type="button">戻る</button>
-          </div>
-        </form>
-      </section>
-    </div>
-  </main>
-  <footer>
-    <div>
-      <small>&copy; 2024 new blog.J🥥 </small>
-    </div>
-  </footer>
+	<!-- nav -->
+	<header>
+		<nav class="navbar">
+			<div class="nav-container">
+				<div class="page-logo">
+					<a th:href="@{/account/welcome}"><img th:src="@{/images/bird_kobatan.png}" alt=""></a>
+				</div>
+				<ul class="nav-menu">
+					<li class="nav-item">
+						<span class="username" th:text="${accountName}"></span>
+					</li>
+					<li>
+						<a th:href="@{/account/logout}" class="logout">ログアウト</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+	<!-- 主体 -->
+	<main>
+		<div class="container">
+			<section class="register-section">
+				<h2>🍍 新規記事追加 🍍 </h2>
+				<!--｛/blog/register/process｝に送信する　--> <!--写真追加必要-->
+				<form th:action="@{/blog/register/process}" method="post" enctype="multipart/form-data">
+					<div class="form-group">
+						<div class="form-label">タイトル</div>
+						<input type="text" id="blogTitle" name="blogTitle" value="" required>
+					</div>
+					<div class="form-group">
+						<div class="category-group">
+							<div class="form-label">カテゴリー</div>
+							<select name="categoryName">
+								<!-- 选项的默认值是空 -->
+								<option value=""></option>
+								<option value="食事">食事</option>
+								<option value="旅行">旅行</option>
+								<option value="仕事">仕事</option>
+								<option value="ペット">ペット</option>
+								<option value="日常生活">日常生活</option>
+								<option value="推し活">推し活</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="date-group">
+							<div class="form-label">日付</div>
+							<input type="date" />
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="form-label">写真追加</div>
+						<input type="file" name="blogImage" id="blogImage" accept="image/*" required>
+				
+					</div>
+					<div class="form-group">
+						<div class="form-label">詳細</div>
+						<textarea name="article" id="article" rows="10" placeholder="今日の気持ちはどう？シェアしましょう"
+							required></textarea>
+					</div>
+
+					<!-- button -->
+					<div class="btn">
+						<div class="register-details">
+							<input type="hidden" name="blogId" value="">
+							<button class="save">保存</button>
+						</div>
+						<input type="hidden" name="blogId" value="">
+						<button class="return" onclick="history.back();" type="button">戻る</button>
+					</div>
+				</form>
+			</section>
+		</div>
+	</main>
+	<footer>
+		<div>
+			<small>&copy; 2024 new blog.J🥥 </small>
+		</div>
+	</footer>
 
 </body>
 

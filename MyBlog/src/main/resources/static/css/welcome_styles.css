@@ -1,14 +1,15 @@
-body{
+body {
   font-family: "Hiragino Sans", "Meiryo", sans-serif;
   margin: 0;
   padding: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative; /* 确保绝对定位的元素相对于body */
 }
 
-header{
-  color:honeydew;
+header {
+  color: honeydew;
   background-color: #86C166;
   width: 100%;
   text-align: center;
@@ -21,28 +22,53 @@ h3 {
   margin: 15px 0;
 }
 
-.content{
+.content {
   display: flex;
   justify-content: space-between;
   width: 80%;
   height: 50%;
-  /* 与welcome之间的距离 */
-  margin-top: 20px;
+  margin-top: 20px; /* 确保与header有足够的空间 */
 }
 
 .left-model, .right-model {
-  display: flex; 
+  display: flex;
   flex-direction: column;
   flex: 1;
-  /* 左右盒子的距离 */
-  margin: 0 10px;
-  background-color: #f0f0f0;
+  margin: 0 10px; /* 左右盒子的距离 */
+  background-color: #ccccd6;
   padding: 15px 40px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  background-color: #ccccd6;
   border-radius: 4px;
 }
 
-footer{
-  margin: 15px;
+.logout-btn {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end; /* 靠右排列 */
+  margin-top: 20px; /* 确保与上面的内容有足够的间距 */
+  padding-right: 20px; /* 与右边框有一定的间距 */
+  box-sizing: border-box;
+}
+
+.logout {
+  background-color: transparent; /* 设置背景色为透明 */
+  color:#8E354A; /* 按钮文字颜色 */
+  border: none; /* 去除边框 */
+  padding: 10px 20px;
+  text-decoration: none; /* 去掉下划线 */
+  border-radius: 5px;
+  font-size: 14px;
+  display: inline-block;
+}
+
+.logout:hover {
+  background-color:#8E354A; /* 按钮悬停背景颜色 */
+  color: white; /* 悬停时的文字颜色 */
+}
+
+footer {
+  width: 100%;
+  text-align: center;
+  padding: 15px;
+  box-sizing: border-box;
 }

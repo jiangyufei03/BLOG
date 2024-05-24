@@ -85,7 +85,7 @@ public class BlogEditController {
 			//そうでない場合、保存する
 		} else {
 			//画像のファイル名を取得、画像のアップロード
-			String fileName = new SimpleDateFormat("yyy-MM-dd-HH-mm-ss-")
+			String fileName = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss-")
 					.format(new Date()) + blogImage.getOriginalFilename();
 			//画像の保存							//保存のところ
 			try {

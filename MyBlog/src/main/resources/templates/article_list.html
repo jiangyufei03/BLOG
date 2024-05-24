@@ -2,70 +2,71 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <!-- スマホでも表示できる -->
-  <meta name="viewport"
-    content="width=device-width, user-scalable=yes, initial-scale=0.3, maximum-scale=2.0, minimum-scale=0.3">
-  <title>ブログ一覧</title>
-  <link rel="stylesheet" th:href="@{/css/list_style.css}">
+	<meta charset="UTF-8">
+	<!-- スマホでも表示できる -->
+	<meta name="viewport"
+		content="width=device-width, user-scalable=yes, initial-scale=0.3, maximum-scale=2.0, minimum-scale=0.3">
+	<title>ブログ一覧</title>
+	<link rel="stylesheet" th:href="@{/css/list_style.css}">
 </head>
 
 <body>
-  <header>
-    <nav class="navbar">
-      <div class="nav-container">
-        <div class="page-logo">
-          <a th:href="@{/account/welcome}"><img th:src="@{/images/bird_kobatan.png}" alt=""></a>
-        </div>
-        <ul class="nav-menu">
-          <li class="nav-item">
-            <span class="username" th:text="${accountName}"></span>
-          </li>
-          <li>
-            <a th:href="@{/account/welcome}" class="userPage">ユーザー</a>
-          </li>
-          <li>
-            <a th:href="@{/account/logout}" class="logout">ログアウト</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  </header>
-  <!-- 主体 -->
-  <main>
-    <article>
-      <h2>🍋 ブログ一覧 🍋</h2>
-      <section class="register-item">
-        <div class="all-view_button">
-          <a th:href="@{/blog/register}" class="btn">ブログ登録</a>
-        </div>
-      </section>
-      <ul class="articles">
-        <!-- for each文を書く -->
-        <li th:each="blog:${blogList}">
-          <!-- 編集画面(BlogEditControllerも使う)-->
-          <a th:href="@{/blog/edit/{blogId}(blogId=${blog.blogId})}">
-            <div class="blog-item">
-              <div class="blog-image">
-                <!-- blogImageはentity中的変数 -->
-                <img th:src="@{/blog-img/{imagePath}(imagePath=${blog.blogImage})}" alt="">
-              </div>
-              <div class="blog-content">
-                <p th:text="${blog.blogTitle}"></p>
-                <p th:text="${blog.categoryName}"></p>
-              </div>
-            </div>
-          </a>
-        </li>
-      </ul>
-    </article>
-  </main>
-  <footer>
-    <div>
-      <small>&copy; 2024 new blog.J🥥 </small>
-    </div>
-  </footer>
+	
+	<header>
+		<nav class="navbar">
+			<div class="nav-container">
+				<div class="page-logo">
+					<a th:href="@{/account/welcome}"><img th:src="@{/images/bird_kobatan.png}" alt=""></a>
+				</div>
+				<ul class="nav-menu">
+					<li class="nav-item">
+						<span class="username" th:text="${accountName}"></span>
+					</li>
+					<li>
+						<a th:href="@{/account/welcome}" class="userPage">ユーザー</a>
+					</li>
+					<li>
+						<a th:href="@{/account/logout}" class="logout">ログアウト</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+	<!-- 主体 -->
+	<main>
+		<article>
+			<h2>🍋 ブログ一覧 🍋</h2>
+			<section class="register-item">
+				<div class="all-view_button">
+					<a th:href="@{/blog/register}" class="btn">ブログ登録</a>
+				</div>
+			</section>
+			<ul class="articles">
+				<!-- for each文を書く -->
+				<li th:each="blog:${blogList}">
+					<!-- 編集画面(BlogEditControllerも使う)-->
+					<a th:href="@{/blog/edit/{blogId}(blogId=${blog.blogId})}">
+						<div class="blog-item">
+							<div class="blog-image">
+								<!-- blogImageはentity中的変数 -->
+								<img th:src="@{/images/{imagePath}(imagePath=${blog.blogImage})}" alt="">
+								
+							</div>
+							<div class="blog-content">
+								<p th:text="${blog.blogTitle}"></p>
+								<p th:text="${blog.categoryName}"></p>
+							</div>
+						</div>
+					</a>
+				</li>
+			</ul>
+		</article>
+	</main>
+	<footer>
+		<div>
+			<small>&copy; 2024 new blog.J🥥 </small>
+		</div>
+	</footer>
 </body>
+
 </html>
-
-
