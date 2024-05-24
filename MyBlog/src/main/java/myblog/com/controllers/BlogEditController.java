@@ -89,8 +89,7 @@ public class BlogEditController {
 					.format(new Date()) + blogImage.getOriginalFilename();
 			//画像の保存							//保存のところ
 			try {
-				Files.copy(blogImage.getInputStream(),
-						Path.of("src/main/resources/static/blog-img/" + fileName));
+				Files.copy(blogImage.getInputStream(), Path.of("./images/" + fileName));
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

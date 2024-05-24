@@ -71,7 +71,7 @@ public class BlogRegisterController {
 				
 				//ファイルの保存作業				
 				try {
-					Files.copy(blogImage.getInputStream(), Path.of("./images" + fileName));
+					Files.copy(blogImage.getInputStream(), Path.of("./images/" + fileName));
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
